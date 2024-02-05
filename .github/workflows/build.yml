@@ -41,15 +41,11 @@ jobs:
 
       - name: Install Terraform
         run: |
-          # Import HashiCorp GPG key
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --import
-
-          # Install Terraform without interactive prompts
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --batch --dearmor -o /usr/local/bin/terraform
-
-          # Set execute permissions
+          # Download and install Terraform
+          curl -o /tmp/terraform.zip -L https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
+          sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
           sudo chmod +x /usr/local/bin/terraform
-      
+          rm /tmp/terraform.zip
 
       - name: Terraform Init
         run: |
