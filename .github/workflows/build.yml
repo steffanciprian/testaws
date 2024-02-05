@@ -47,6 +47,9 @@ jobs:
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
 
+      - name: Initialize Submodules
+        run: git submodule update --init --recursive
+
       - name: List Files in Terraform Directory
         run: |
           ls ../../testaws/
