@@ -50,6 +50,10 @@ jobs:
           sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-west-1
 
       - name: List files
         run:
@@ -63,9 +67,9 @@ jobs:
           # Initialize Terraform
           terraform init
 
-
       - name: Terraform Apply
         run: |
           # Apply Terraform changes (replace with your specific options)
           cd $GITHUB_WORKSPACE
           terraform apply -auto-approve
+          
