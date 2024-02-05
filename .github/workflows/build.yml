@@ -47,11 +47,6 @@ jobs:
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
 
-      - name: Initialize Submodules
-        run: |
-          cd $GITHUB_WORKSPACE  # Change to the root of the repository
-          git submodule update --init --recursive
-
       - name: Terraform Init
         run: |
           # Change to your Terraform directory
