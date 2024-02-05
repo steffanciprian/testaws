@@ -57,7 +57,7 @@ jobs:
 
       - name: List Files in Terraform Directory
         run: |
-          ls -la ../../testaws
+          ls -la ../testaws
     
 
       - name: Terraform Apply
