@@ -36,6 +36,10 @@ jobs:
     needs: build
 
     steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Check GPG Version
         run: gpg --version
 
