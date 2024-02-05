@@ -1,6 +1,7 @@
 
 provider "aws" {
   region = "eu-west-1"
+  required_version = ">= v1.7.2"
 }
 
 resource "null_resource" "terraform_start_message" {
