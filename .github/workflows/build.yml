@@ -27,48 +27,48 @@ jobs:
 
     needs: build
 
-    steps:
+#    steps:
       #      - name: Deploy to AWS
       #        run: |
       #          # Add your deployment script or commands here
 
-      - name: Install Terraform
-        run: |
-          # Install Terraform
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg-agent
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg-connect-agent
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgconf
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgparsemail
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsplit
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv2
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv3
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsm
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgtar
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv2
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv3
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsm
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgtar
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/packer
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/vault
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/terraform
-
-          sudo chmod +x /usr/local/bin/terraform
-
-      - name: Terraform Init
-        run: |
-          # Change to your Terraform directory
-          cd ../../terraform
-
-          # Initialize Terraform
-          terraform init
-
-      - name: Terraform Apply
-        run: |
-          # Change to your Terraform directory
-          cd ../../terraform
-
-          # Apply Terraform changes (replace with your specific options)
-          terraform apply -auto-approve
+#      - name: Install Terraform
+#        run: |
+#          # Install Terraform
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg-agent
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpg-connect-agent
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgconf
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgparsemail
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsplit
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv2
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv3
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsm
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgtar
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv2
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgv3
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgsm
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/gpgtar
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/packer
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/vault
+#          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/local/bin/terraform
+#
+#          sudo chmod +x /usr/local/bin/terraform
+#
+#      - name: Terraform Init
+#        run: |
+#          # Change to your Terraform directory
+#          cd ../../terraform
+#
+#          # Initialize Terraform
+#          terraform init
+#
+#      - name: Terraform Apply
+#        run: |
+#          # Change to your Terraform directory
+#          cd ../../terraform
+#
+#          # Apply Terraform changes (replace with your specific options)
+#          terraform apply -auto-approve
