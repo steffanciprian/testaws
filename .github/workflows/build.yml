@@ -49,7 +49,7 @@ jobs:
 
       - name: List Files in Terraform Directory
         run: |
-          ls ../../
+          ls ../
           
 
       - name: Terraform Init
