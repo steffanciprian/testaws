@@ -63,8 +63,5 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          # Change to your Terraform directory
-          cd ../../testaws
-
           # Apply Terraform changes (replace with your specific options)
           terraform apply -auto-approve
