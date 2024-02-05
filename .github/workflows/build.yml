@@ -49,13 +49,13 @@ jobs:
 
       - name: List Files in Terraform Directory
         run: |
-          ls ../../testaws
+          ls ../../testaws/
           
 
       - name: Terraform Init
         run: |
           # Change to your Terraform directory
-          cd ../../testaws
+          cd ../../testaws/
 
           # Initialize Terraform
           terraform init
