@@ -48,17 +48,14 @@ jobs:
           rm /tmp/terraform.zip
 
       - name: Initialize Submodules
-        run: git submodule update --init --recursive
-
-      - name: List Files in Terraform Directory
         run: |
-          ls ../../testaws/
-          
+          cd $GITHUB_WORKSPACE  # Change to the root of the repository
+          git submodule update --init --recursive
 
       - name: Terraform Init
         run: |
           # Change to your Terraform directory
-          cd ../../testaws/
+          cd $GITHUB_WORKSPACE/testaws
 
           # Initialize Terraform
           terraform init
@@ -67,4 +64,5 @@ jobs:
       - name: Terraform Apply
         run: |
           # Apply Terraform changes (replace with your specific options)
+          cd $GITHUB_WORKSPACE/testaws  # Change to the Terraform directory
           terraform apply -auto-approve
