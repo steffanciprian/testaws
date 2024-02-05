@@ -47,6 +47,11 @@ jobs:
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
 
+      - name: List Files in Terraform Directory
+        run: |
+          ls -la ../../terraform
+          
+
       - name: Terraform Init
         run: |
           # Change to your Terraform directory
@@ -55,9 +60,6 @@ jobs:
           # Initialize Terraform
           terraform init
 
-      - name: List Files in Terraform Directory
-        run: |
-          ls -la ../../teraform
 
       - name: Terraform Apply
         run: |
