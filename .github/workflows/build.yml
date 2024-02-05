@@ -47,6 +47,10 @@ jobs:
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
 
+      - name: List files
+        run:
+          ls -l $GITHUB_WORKSPACE
+
       - name: Terraform Init
         run: |
           # Change to your Terraform directory
