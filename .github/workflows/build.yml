@@ -13,11 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 21
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: '21'
+          java-version: 11  # Use a more common Java version (e.g., 11) unless JDK 21 is required.
 
       - name: Upgrade Maven to Latest Version
         run: |
@@ -39,7 +38,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-
       - name: Check GPG Version
         run: gpg --version
 
@@ -51,29 +49,21 @@ jobs:
           sudo chmod +x /usr/local/bin/terraform
           rm /tmp/terraform.zip
 
+      - name: Configure AWS Credentials
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+
       - name: Debug AWS Credentials
         run: |
           echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
           echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
 
       - name: List files
-        run:
-          ls -l $GITHUB_WORKSPACE
+        run: ls -l $GITHUB_WORKSPACE
 
       - name: Terraform Init
-        run: |
-          
-          # Change to your Terraform directory
-          cd $GITHUB_WORKSPACE
-
-          # Initialize Terraform
-          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          terraform init
+        run: terraform init
 
       - name: Terraform Apply
-        run: |
-          # Apply Terraform changes (replace with your specific options)
-          cd $GITHUB_WORKSPACE
-          terraform apply -auto-approve
-          
+        run: terraform apply -auto-approve
