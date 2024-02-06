@@ -16,7 +16,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: 11  # Use a more common Java version (e.g., 11) unless JDK 21 is required.
+          java-version: 21
 
       - name: Upgrade Maven to Latest Version
         run: |
