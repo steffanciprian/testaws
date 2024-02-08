@@ -11,6 +11,7 @@ terraform {
   }
 }
 
+
 resource "null_resource" "terraform_start_message" {
   provisioner "local-exec" {
     command = "echo 'Starting Terraform for AWS Cognito User Pool'"
